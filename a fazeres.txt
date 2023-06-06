@@ -1,0 +1,4 @@
+- Incluir cronometro 
+- Incluir nº de vidas
+- Incluir perguntas e respostas corretas 
+
