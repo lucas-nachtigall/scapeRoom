@@ -1,8 +1,10 @@
+// __________________________________________ Declaração de variáveis __________________________________________
+var perguntasExibidas = [];
+var blocoQuestaoRespondido = [];
 var container = document.getElementById('container');
 var character = document.getElementById('character');
 var obstaculos = document.getElementsByClassName('obstaculo');
 var blocoQuestao = document.getElementsByClassName('blocoQuestao');
-
 var containerWidth = container.offsetWidth;
 var containerHeight = container.offsetHeight;
 var positionTop = parseInt(character.style.top) || character.offsetHeight + 25;
@@ -11,7 +13,9 @@ var stepSize = 30;
 character.style.top = positionTop + 'px';
 character.style.left = positionLeft + 'px';
 
-document.addEventListener('keydown', function(event) {
+// __________________________________________ Movimentação do personagem __________________________________________
+
+document.addEventListener('keydown', function (event) {
     switch (event.keyCode) {
         case 37: // Left arrow key
             positionLeft = Math.max(positionLeft - stepSize, character.offsetWidth + 5);
@@ -27,6 +31,8 @@ document.addEventListener('keydown', function(event) {
             break;
     }
 
+    // __________________________________________ Identificação de colisão com o labirinto __________________________________________
+
     character.style.top = positionTop + 'px';
     character.style.left = positionLeft + 'px';
 
@@ -34,10 +40,12 @@ document.addEventListener('keydown', function(event) {
         var positionObstaculo = obstaculos[i].getBoundingClientRect();
         var positionCharacter = character.getBoundingClientRect();
 
-        if (positionCharacter.right > positionObstaculo.left &&
+        if (
+            positionCharacter.right > positionObstaculo.left &&
             positionCharacter.bottom > positionObstaculo.top &&
             positionCharacter.left < positionObstaculo.right &&
-            positionCharacter.top < positionObstaculo.bottom) {
+            positionCharacter.top < positionObstaculo.bottom
+        ) {
             switch (event.keyCode) {
                 case 37: // Left arrow key
                     positionLeft = positionLeft + stepSize;
@@ -57,28 +65,81 @@ document.addEventListener('keydown', function(event) {
         }
     }
 
+    // __________________________________________ Identificação de colisão com o blocoQuestao __________________________________________
+
+    var blocoQuestaoColidido = null;
     var personagemColideBlocoQuestao = false; // Variável para rastrear se o personagem está em colisão com algum blocoQuestao
 
     for (var i = 0; i < blocoQuestao.length; i++) {
         var positionBlocoQuestao = blocoQuestao[i].getBoundingClientRect();
         var positionCharacter = character.getBoundingClientRect();
 
-        if (positionCharacter.right > positionBlocoQuestao.left &&
+        if (
+            positionCharacter.right > positionBlocoQuestao.left &&
             positionCharacter.bottom > positionBlocoQuestao.top &&
             positionCharacter.left < positionBlocoQuestao.right &&
-            positionCharacter.top < positionBlocoQuestao.bottom) {
-            personagemColideBlocoQuestao = true; // O personagem está em colisão com um blocoQuestao
-            console.log('entrou');
+            positionCharacter.top < positionBlocoQuestao.bottom
+        ) {
+            personagemColideBlocoQuestao = true;
+            blocoQuestaoColidido = blocoQuestao[i]; // O personagem está em colisão com um blocoQuestao
             break; // Não é necessário continuar verificando colisões com outros blocos se já houve uma colisão
         }
     }
 
-    var exclamacao = document.querySelector('.exclamacao');
+    // __________________________________________ Aparecer exclamação/Aparecer pergunta/Tratamento da pergunta __________________________________________
 
-    if (personagemColideBlocoQuestao) {
+    var exclamacao = document.querySelector('.exclamacao');
+    var loopInterrompido = false;
+
+    if (
+        personagemColideBlocoQuestao &&
+        !blocoQuestaoRespondido.includes(blocoQuestaoColidido.getAttribute('data-bloco'))
+    ) {
         exclamacao.style.display = 'block';
+
+        if (event.keyCode === 32) {
+            if (blocoQuestaoColidido) {
+                var blocoSelecionado = blocoQuestaoColidido.getAttribute('data-bloco');
+                console.log('Bloco selecionado: ' + blocoSelecionado);
+
+                var perguntaAleatoria;
+                do {
+                    perguntaAleatoria = Math.floor(Math.random() * 11) + 1;
+                } while (perguntasExibidas.includes(perguntaAleatoria));
+
+                perguntasExibidas.push(perguntaAleatoria);
+
+                var pergunta = document.querySelector('.pergunta' + parseInt(perguntaAleatoria));
+                pergunta.style.display = 'block';
+
+                var respostas = document.getElementsByClassName('caixaRespostas' + parseInt(perguntaAleatoria))[0]
+                    .children;
+                for (var i = 0; i < respostas.length; i++) {
+                    respostas[i].addEventListener('click', function () {
+                        if (loopInterrompido) return;
+                        var respostaClicada = this.querySelector('p').innerText;
+                        lidarComResposta(respostaClicada);
+                        loopInterrompido = true;
+                    });
+                }
+            }
+        }
     } else {
         exclamacao.style.display = 'none';
     }
-});
 
+    function lidarComResposta(resposta) {
+        alert('Resposta clicada: ' + resposta);
+
+        var pergunta = document.querySelector('.pergunta' + parseInt(perguntaAleatoria));
+        pergunta.style.display = 'none';
+
+        if (resposta != 'C - Mundial') {
+            alert('wasted');
+        } else {
+            alert('great!');
+            blocoQuestaoRespondido.push(blocoSelecionado);
+            console.log('Os blocos respondidos foram: ', blocoQuestaoRespondido);
+        }
+    }
+});
