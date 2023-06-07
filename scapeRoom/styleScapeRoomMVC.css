@@ -167,7 +167,7 @@ body {
 
         .pergunta1 p{
             font-family: 'Press Start 2P', cursive;
-            font-size: 40px;
+            font-size: 20px;
             color: white;
         }
 
@@ -190,7 +190,7 @@ body {
 
         .pergunta2 p{
             font-family: 'Press Start 2P', cursive;
-            font-size: 40px;
+            font-size: 20px;
             color: white;
         }
 
@@ -213,7 +213,7 @@ body {
 
         .pergunta3 p{
             font-family: 'Press Start 2P', cursive;
-            font-size: 40px;
+            font-size: 20px;
             color: white;
         }
 
@@ -236,7 +236,7 @@ body {
 
         .pergunta4 p{
             font-family: 'Press Start 2P', cursive;
-            font-size: 40px;
+            font-size: 20px;
             color: white;
         }
 
@@ -259,7 +259,7 @@ body {
 
         .pergunta5 p{
             font-family: 'Press Start 2P', cursive;
-            font-size: 40px;
+            font-size: 20px;
             color: white;
         }
 
@@ -282,7 +282,7 @@ body {
 
         .pergunta6 p{
             font-family: 'Press Start 2P', cursive;
-            font-size: 40px;
+            font-size: 20px;
             color: white;
         }
 
@@ -305,7 +305,7 @@ body {
 
         .pergunta7 p{
             font-family: 'Press Start 2P', cursive;
-            font-size: 40px;
+            font-size: 20px;
             color: white;
         }
 
@@ -328,7 +328,7 @@ body {
 
         .pergunta8 p{
             font-family: 'Press Start 2P', cursive;
-            font-size: 40px;
+            font-size: 20px;
             color: white;
         }
 
@@ -351,7 +351,7 @@ body {
 
         .pergunta9 p{
             font-family: 'Press Start 2P', cursive;
-            font-size: 40px;
+            font-size: 20px;
             color: white;
         }
 
@@ -374,7 +374,7 @@ body {
 
         .pergunta10 p{
             font-family: 'Press Start 2P', cursive;
-            font-size: 40px;
+            font-size: 20px;
             color: white;
         }
 
@@ -397,7 +397,7 @@ body {
 
         .pergunta11 p{
             font-family: 'Press Start 2P', cursive;
-            font-size: 40px;
+            font-size: 20px;
             color: white;
         }
 
@@ -410,7 +410,6 @@ body {
 
         }
         .caixaRespostas{
-
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -418,18 +417,22 @@ body {
           
     .respostaA{
         cursor: pointer;
+        margin-top: 20px;
     }
 
     .respostaB{
         cursor: pointer;
+        margin-top: 20px;
     }
 
     .respostaC{
         cursor: pointer;
+        margin-top: 20px;
     }
 
     .respostaD{
         cursor: pointer;
+        margin-top: 20px;
     }
 
     .vida1{
@@ -492,3 +495,14 @@ body {
         height: 100%;
     }
 
+    .cronometro {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 24px;
+        font-weight: bold;
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      
