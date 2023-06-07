@@ -1,9 +1,14 @@
 // __________________________________________ Declaração de variáveis __________________________________________
+var contagemVidas = 0;
 var perguntasExibidas = [];
 var blocoQuestaoRespondido = [];
 var container = document.getElementById('container');
 var character = document.getElementById('character');
 var obstaculos = document.getElementsByClassName('obstaculo');
+var vida1 = document.querySelector('.vida1');
+var vida2 = document.querySelector('.vida2');
+var vida3 = document.querySelector('.vida3');
+var wasted = document.querySelector('.gameOver');
 var blocoQuestao = document.getElementsByClassName('blocoQuestao');
 var containerWidth = container.offsetWidth;
 var containerHeight = container.offsetHeight;
@@ -129,17 +134,41 @@ document.addEventListener('keydown', function (event) {
     }
 
     function lidarComResposta(resposta) {
-        alert('Resposta clicada: ' + resposta);
-
         var pergunta = document.querySelector('.pergunta' + parseInt(perguntaAleatoria));
         pergunta.style.display = 'none';
 
         if (resposta != 'C - Mundial') {
-            alert('wasted');
+            switch (contagemVidas){
+                case 0:
+                    contagemVidas ++; 
+                    alert('Cuidado em, lá se vai uma vida');
+                    vida1.style.display = "none";
+                    break;
+
+                case 1:
+                    contagemVidas ++; 
+                    alert('Fica esperto senão logo logo você perde');
+                    vida2.style.display = "none";
+                    break;
+
+                case 2:
+                    contagemVidas ++; 
+                    alert('Ih amigão tá dificil em. É a última chance');
+                    vida3.style.display = "none";
+                    break;
+
+                case 3:
+                    contagemVidas ++; 
+                    console.log ("contagem de vidas = " + contagemVidas)
+                    wasted.style.display = 'flex'
+                    
+                    break;
+            }
+            
         } else {
-            alert('great!');
             blocoQuestaoRespondido.push(blocoSelecionado);
             console.log('Os blocos respondidos foram: ', blocoQuestaoRespondido);
+            blocoQuestao[blocoSelecionado].style.filter='contrast(0.25)';
         }
     }
 });
