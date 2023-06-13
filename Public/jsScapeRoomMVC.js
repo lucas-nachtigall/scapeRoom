@@ -13,7 +13,7 @@ var blocoQuestao = document.getElementsByClassName('blocoQuestao');
 var containerWidth = container.offsetWidth;
 var containerHeight = container.offsetHeight;
 var positionTop = parseInt(character.style.top) || character.offsetHeight ;
-var positionLeft = parseInt(character.style.left) || character.offsetWidth + 5;
+var positionLeft = parseInt(character.style.left) || character.offsetWidth;
 var stepSize = 10;
 character.style.top = positionTop + 'px';
 character.style.left = positionLeft + 'px';
@@ -54,10 +54,10 @@ document.addEventListener('keydown', function (event) {
     
     switch (event.keyCode) {
         case 37: // Left arrow key
-            positionLeft = Math.max(positionLeft - stepSize, character.offsetWidth + 5);
+            positionLeft = Math.max(positionLeft - stepSize, character.offsetWidth);
             break;
         case 38: // Up arrow key
-            positionTop = Math.max(positionTop - stepSize, character.offsetHeight );
+            positionTop = Math.max(positionTop - stepSize, character.offsetHeight);
             break;
         case 39: // Right arrow key
             positionLeft = Math.min(positionLeft + stepSize, containerWidth - character.offsetWidth);
@@ -167,45 +167,60 @@ document.addEventListener('keydown', function (event) {
     function lidarComResposta(resposta) {
         var pergunta = document.querySelector('.pergunta' + parseInt(perguntaAleatoria));
         pergunta.style.display = 'none';
-
-        if (resposta != 'C - Mundial' && 
-        resposta !='A - Separar a lógica de apresentação dos dados' && 
-        resposta != 'B - Responsável pela lógica de negócio e manipulação dos dados' &&
-        resposta != 'D - Responsável pela manipulação das requisições e respostas HTTP' &&
-        resposta != 'B - Torna o código mais organizado e modular'
+    
+        if (
+            resposta != 'A - Separar a lógica de apresentação dos dados' &&
+            resposta != 'B - Gerenciar os dados e a lógica de negócio' &&
+            resposta != 'D - Responsável pela manipulação das requisições e respostas HTTP' &&
+            resposta != 'B - Torna o código mais organizado e modular' &&
+            resposta != 'A - Na Model' &&
+            resposta != 'C - O Model notifica o Controller por meio de eventos ou callbacks quando ocorrem alterações nos dados' &&
+            resposta != 'B - Exibir a mensagem Ok e em seguida exibir os produtos' &&
+            resposta != 'D - return ok(dados)' &&
+            resposta != 'C - var produto = new ProdutoModel() { Id = id, Nome = "Produto A", Preco = 9.99m };' && 
+            resposta != 'D - Atribuir um valor inicial à propriedade Id do objeto cliente' &&
+            resposta != 'A - O campo Id está sendo inicializado, enquanto os campos Data e Total não estão sendo inicializados.'
         ) {
-            switch (contagemVidas){
+            switch (contagemVidas) {
                 case 0:
-                    contagemVidas ++; 
+                    contagemVidas++;
                     alert('Cuidado em, lá se vai uma vida');
-                    vida1.style.display = "none";
+                    vida1.style.display = 'none';
                     break;
-
+    
                 case 1:
-                    contagemVidas ++; 
+                    contagemVidas++;
                     alert('Fica esperto senão logo logo você perde');
-                    vida2.style.display = "none";
+                    vida2.style.display = 'none';
                     break;
-
+    
                 case 2:
-                    contagemVidas ++; 
+                    contagemVidas++;
                     alert('Ih amigão tá dificil em. É a última chance');
-                    vida3.style.display = "none";
+                    vida3.style.display = 'none';
                     break;
-
+    
                 case 3:
-                    contagemVidas ++; 
-                    wasted.style.display = 'flex'
-                    setTimeout(function() {
+                    contagemVidas++;
+                    wasted.style.display = 'flex';
+                    setTimeout(function () {
                         location.reload();
-                      }, 5000);
+                    }, 5000);
                     break;
             }
-            
+    
+            // Reinicia a verificação de perguntas respondidas caso a resposta esteja incorreta
+            perguntasExibidas = perguntasExibidas.filter(function (pergunta) {
+                return pergunta !== perguntaAleatoria;
+            });
+    
         } else {
             blocoQuestaoRespondido.push(blocoSelecionado);
             console.log('Os blocos respondidos foram: ', blocoQuestaoRespondido);
-            blocoQuestao[blocoSelecionado].style.filter='contrast(0.25)';
+            blocoQuestao[blocoSelecionado].style.filter = 'contrast(0.25)';
+            if(blocoQuestaoRespondido.length==11){
+                alert('Desafio concluído, aperta F5 para ganhar seu prêmio :D')
+            }
         }
     }
 });

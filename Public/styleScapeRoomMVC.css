@@ -305,8 +305,29 @@ body {
 
         .pergunta7 p{
             font-family: 'Press Start 2P', cursive;
-            font-size: 20px;
+            font-size: 10px;
             color: white;
+            margin-left: 20px;
+        }
+
+        .caixaPergunta7{
+            width: 100%;
+            height: 400px;
+        }
+
+        .caixaPergunta11{
+            width: 100%;
+            height: 450px;
+        }
+
+        .caixaPergunta7 img{
+            width: 500px;
+            height: 325px;
+        }
+
+        .caixaPergunta11 img{
+            width: 500px;
+            height: 450px;
         }
 
         .pergunta8 {
@@ -328,7 +349,7 @@ body {
 
         .pergunta8 p{
             font-family: 'Press Start 2P', cursive;
-            font-size: 20px;
+            font-size: 10px;
             color: white;
         }
 
@@ -351,7 +372,7 @@ body {
 
         .pergunta9 p{
             font-family: 'Press Start 2P', cursive;
-            font-size: 20px;
+            font-size: 10px;
             color: white;
         }
 
@@ -374,7 +395,7 @@ body {
 
         .pergunta10 p{
             font-family: 'Press Start 2P', cursive;
-            font-size: 20px;
+            font-size: 10px;
             color: white;
         }
 
@@ -397,7 +418,7 @@ body {
 
         .pergunta11 p{
             font-family: 'Press Start 2P', cursive;
-            font-size: 20px;
+            font-size: 10px;
             color: white;
         }
 
@@ -505,4 +526,7 @@ body {
         transform: translateX(-50%);
       }
       
-      
+      .caixaPergunta1 img{
+        width: 600px;
+        height: 400px;
+      }

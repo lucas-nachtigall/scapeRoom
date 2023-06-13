@@ -227,26 +227,26 @@
             <div class="caixaPergunta1">
                 <textoPergunta>
                     <p>
-                        2- Qual a principal função da Model no padrão MVC ?
+                        2- Qual é a principal responsabilidade do Model no padrão de arquitetura MVC ?
                     </p>
                 </textoPergunta>
             </div>
             <br><br><br>
             <div class="caixaRespostas2">
                 <div class="respostaA">
-                    <p>A - Responsável pela interação com a interface do usuário</p>
+                    <p>A - Manipular a interação com o usuário</p>
                 </div>
 
                 <div class="respostaB">
-                    <p>B - Responsável pela lógica de negócio e manipulação dos dados</p>
+                    <p>B - Gerenciar os dados e a lógica de negócio</p>
                 </div>
 
                 <div class="respostaC">
-                    <p> C - Responsável pela renderização da interface do usuário</p>
+                    <p> C - Controlar a apresentação visual dos dados</p>
                 </div>
 
                 <div class="respostaD">
-                    <p>D - Responsável pela manipulação das requisições e respostas HTTP</p>
+                    <p>D - Lidar com as requisições e respostas HTTP</p>
                 </div>
             </div>
         </div>
@@ -311,26 +311,26 @@
             <div class="caixaPergunta1">
                 <textoPergunta>
                     <p>
-                        5-Palmeiras não tem ...?
+                        5-Em um projeto MVC, onde é o local adequado para implementar a validação dos dados de entrada?
                     </p>
                 </textoPergunta>
             </div>
             <br><br><br>
             <div class="caixaRespostas5">
                 <div class="respostaA">
-                    <p>A - paulista</p>
+                    <p>A - Na Model</p>
                 </div>
 
                 <div class="respostaB">
-                    <p>B - Taça rio</p>
+                    <p>B - No View</p>
                 </div>
 
                 <div class="respostaC">
-                    <p> C - Mundial</p>
+                    <p>C - Na Controller</p>
                 </div>
 
                 <div class="respostaD">
-                    <p>D - Cachaça</p>
+                    <p>D - Na camada de banco de dados</p>
                 </div>
             </div>
         </div>
@@ -339,166 +339,182 @@
             <div class="caixaPergunta1">
                 <textoPergunta>
                     <p>
-                        6-Palmeiras não tem ...?
+                        6-No contexto do padrão MVC, como ocorre a comunicação entre o Model e o Controller?
                     </p>
                 </textoPergunta>
             </div>
             <br><br><br>
             <div class="caixaRespostas6">
                 <div class="respostaA">
-                    <p>A - paulista</p>
+                    <p>A - O Model envia atualizações periódicas para o Controller por meio de requisições HTTP</p>
                 </div>
 
                 <div class="respostaB">
-                    <p>B - Taça rio</p>
+                    <p>B - O Controller acessa diretamente os métodos e propriedades do Model para obter ou modificar os dados</p>
                 </div>
 
                 <div class="respostaC">
-                    <p> C - Mundial</p>
+                    <p>C - O Model notifica o Controller por meio de eventos ou callbacks quando ocorrem alterações nos dados</p>
                 </div>
 
                 <div class="respostaD">
-                    <p>D - Cachaça</p>
+                    <p>D - O Controller utiliza o Observer Pattern para monitorar as alterações no Model</p>
                 </div>
             </div>
         </div>
 
         <div class="pergunta7">
-            <div class="caixaPergunta1">
-                <textoPergunta>
+            <div class="caixaPergunta7">
+                <div class="textoPergunta">
                     <p>
-                        7-Palmeiras não tem ...?
+                        7- Analise o código a seguir: 
                     </p>
-                </textoPergunta>
+                        <img src="pergunta 7.PNG">        
+                    <p>No trecho de código acima, qual é a função da Controller ProductController?</p>
+                </div>
             </div>
-            <br><br><br>
+            <br>
             <div class="caixaRespostas7">
                 <div class="respostaA">
-                    <p>A - paulista</p>
+                    <p>A- Ler todos os produtos, mas sem exibir ao usuário</p>
                 </div>
 
                 <div class="respostaB">
-                    <p>B - Taça rio</p>
+                    <p>B - Exibir a mensagem Ok e em seguida exibir os produtos</p>
                 </div>
 
                 <div class="respostaC">
-                    <p> C - Mundial</p>
+                    <p> C - Atualizar um produto existente</p>
                 </div>
 
                 <div class="respostaD">
-                    <p>D - Cachaça</p>
+                    <p>D -  Nenhuma das anteriores</p>
                 </div>
             </div>
         </div>
 
         <div class="pergunta8">
-            <div class="caixaPergunta1">
-                <textoPergunta>
+            <div class="caixaPergunta7">
+                <div class="textoPergunta">
                     <p>
-                        8-Palmeiras não tem ...?
+                        8-Analise o código abaixo: 
                     </p>
-                </textoPergunta>
+                </p>
+                <img src="pergunta 8.PNG">        
+            <p>No trecho de código acima, qual alternativa abaixo se encaixa melhor na linha faltante?</p>
+                </div>
             </div>
-            <br><br><br>
+            <br>
             <div class="caixaRespostas8">
                 <div class="respostaA">
-                    <p>A - paulista</p>
+                    <p>A - return NotFound()</p>
                 </div>
 
                 <div class="respostaB">
-                    <p>B - Taça rio</p>
+                    <p>B - return BadRequest()</p>
                 </div>
 
                 <div class="respostaC">
-                    <p> C - Mundial</p>
+                    <p> C - return ok(_service)</p>
                 </div>
 
                 <div class="respostaD">
-                    <p>D - Cachaça</p>
+                    <p>D - return ok(dados)</p>
                 </div>
             </div>
         </div>
 
         <div class="pergunta9">
-            <div class="caixaPergunta1">
-                <textoPergunta>
+            <div class="caixaPergunta7">
+                <div class="textoPergunta">
                     <p>
-                        9-Palmeiras não tem ...?
+                        9-Analise o código abaixo: 
                     </p>
-                </textoPergunta>
+                </p>
+                <img src="pergunta 9.PNG">        
+            <p>Qual das opções abaixo preenche de maneira mais adequada a linha faltante?</p>
+                </div>
             </div>
-            <br><br><br>
+            <br>
             <div class="caixaRespostas9">
                 <div class="respostaA">
-                    <p>A - paulista</p>
+                    <p>A - var produto = ProdutoModel(Id = id, Nome = "Produto A", Preco = 9.99m);</p>
                 </div>
 
                 <div class="respostaB">
-                    <p>B - Taça rio</p>
+                    <p>B - var produto = new ProdutoModel(Id = id, Nome = "Produto A", Preco = 9.99m);</p>
                 </div>
 
                 <div class="respostaC">
-                    <p> C - Mundial</p>
+                    <p>C - var produto = new ProdutoModel() { Id = id, Nome = "Produto A", Preco = 9.99m };</p>
                 </div>
 
                 <div class="respostaD">
-                    <p>D - Cachaça</p>
+                    <p>D - var produto = ProdutoModel() { Id = id, Nome = "Produto A", Preco = 9.99m };</p>
                 </div>
             </div>
         </div>
 
         <div class="pergunta10">
-            <div class="caixaPergunta1">
-                <textoPergunta>
+            <div class="caixaPergunta7">
+                <div class="textoPergunta">
                     <p>
-                        10-Palmeiras não tem ...?
+                        10-Analise o código abaixo: 
                     </p>
-                </textoPergunta>
+                </p>
+                <img src="pergunta 10.PNG">        
+            <p>No trecho de código acima, qual é o objetivo da linha cliente.Id = 0;?</p>
+                </div>
             </div>
-            <br><br><br>
+            <br>
             <div class="caixaRespostas10">
                 <div class="respostaA">
-                    <p>A - paulista</p>
+                    <p>A - Verificar se o Id do cliente é igual a zero</p>
                 </div>
 
                 <div class="respostaB">
-                    <p>B - Taça rio</p>
+                    <p>B - Limpar o valor atual da propriedade Id do objeto cliente</p>
                 </div>
 
                 <div class="respostaC">
-                    <p> C - Mundial</p>
+                    <p>C - Atribuir um valor inválido à propriedade Id do objeto cliente</p>
                 </div>
 
                 <div class="respostaD">
-                    <p>D - Cachaça</p>
+                    <p>D - Atribuir um valor inicial à propriedade Id do objeto cliente</p>
                 </div>
             </div>
         </div>
 
         <div class="pergunta11">
-            <div class="caixaPergunta1">
-                <textoPergunta>
+            <div class="caixaPergunta11">
+                <div class="textoPergunta">
                     <p>
-                        11-Palmeiras não tem ...?
+                        11-Analise o código abaixo: 
                     </p>
-                </textoPergunta>
+                </p>
+                <img src="pergunta 11.PNG">        
+            <p>No método ObterPedido da classe PedidoController, um objeto Pedido é criado e retornado como resultado da chamada ao método. No entanto, 
+                alguns campos desse objeto estão sendo inicializados diretamente no código, enquanto outros não. Com base no código fornecido, indique 
+                quais campos estão sendo inicializados no momento da criação do objeto Pedido.</p>
+                </div>
             </div>
             <br><br><br>
             <div class="caixaRespostas11">
                 <div class="respostaA">
-                    <p>A - paulista</p>
+                    <p>A - O campo Id está sendo inicializado, enquanto os campos Data e Total não estão sendo inicializados.</p>
                 </div>
 
                 <div class="respostaB">
-                    <p>B - Taça rio</p>
+                    <p>B - O campo Data está sendo inicializado, enquanto os campos Id e Total não estão sendo inicializados.</p>
                 </div>
 
                 <div class="respostaC">
-                    <p> C - Mundial</p>
+                    <p>C - O campo Total está sendo inicializado, enquanto os campos Id e Data não estão sendo inicializados.</p>
                 </div>
 
                 <div class="respostaD">
-                    <p>D - Cachaça</p>
+                    <p>D - Todos os campos Id, Data e Total estão sendo inicializados corretamente no momento da criação do objeto Pedido.</p>
                 </div>
             </div>
         </div>
@@ -523,7 +539,6 @@
         <span id="minutos">20</span> :
         <span id="segundos">00</span>
       </div>
-      
     </div>
 
     
